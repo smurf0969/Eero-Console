@@ -1,4 +1,4 @@
-# Eero-Console
+# Eero-Console ![.NET Core](https://github.com/smurf0969/Eero-Console/workflows/.NET%20Core/badge.svg)
 .Net Core Console Application for obtaining Eero network details via their API
 
 This application is based on the source code from [Eero Client](https://github.com/343max/eero-client) (#unofficial barebone client lib for eero router (https://eero.com)) and ported to a C# .Net Core Application to more suit my needs.  
