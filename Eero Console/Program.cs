@@ -141,7 +141,7 @@ namespace Eero_Console
                                 string devices = eero.GetNetworkDevices(eeroAccount.Networks[0].Id);
                                 eeroAccount.Networks[0].SetDevicesFromString(devices);
                                 long AMonthAgo = DateTime.UtcNow.AddMonths(-1).Ticks;// not sure when or if the device list gets purged
-                                List<Eero_Models.Device> Phones = eeroAccount.Networks[0].Devices?.Where(x => x.Device_Type == "phone" && x.Wireless && x.Last_Active.Ticks >= AMonthAgo).ToList();
+                                List<Eero_Models.Device> Phones = eeroAccount.Networks[0].Devices?.Where(x => x.Device_Type == "phone" && x.Wireless && x.Last_Active.Ticks >= AMonthAgo && x.Is_Guest==false).ToList();
                                 List<Eero_Models.Device> DevicesHome = Phones.Where(x => x.Connected).ToList();
                                 List<Eero_Models.Device> DevicessAway = Phones.Where(x => !x.Connected).ToList();
                                 MyPresence.HomeAway HomeAndAway = new MyPresence.HomeAway(DevicesHome, DevicessAway);
