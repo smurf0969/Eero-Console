@@ -153,7 +153,7 @@ namespace Eero_API
             HttpResponseMessage response = client.GetAsync(Urls["networks"]).Result;
             if (Debug)
             {
-                File.AppendAllText(Path.Combine(AppContext.BaseDirectory, "networks.txt"), response.Content.ReadAsStringAsync().Result);
+                File.WriteAllText(Path.Combine(AppContext.BaseDirectory, "networks.txt"), response.Content.ReadAsStringAsync().Result);
             }
             return response.Content.ReadAsStringAsync().Result;
         }
@@ -163,7 +163,7 @@ namespace Eero_API
             HttpResponseMessage response = client.GetAsync(string.Format(Urls["network devices"],networkID)).Result;
             if (Debug)
             {
-                File.AppendAllText(Path.Combine(AppContext.BaseDirectory, "network_devices.txt"), response.Content.ReadAsStringAsync().Result);
+                File.WriteAllText(Path.Combine(AppContext.BaseDirectory, "network_devices.txt"), response.Content.ReadAsStringAsync().Result);
             }
             return response.Content.ReadAsStringAsync().Result;
         }

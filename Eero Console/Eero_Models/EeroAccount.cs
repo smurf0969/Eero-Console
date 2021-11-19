@@ -18,7 +18,8 @@ namespace Eero_Models
         {
             var o = JsonConvert.DeserializeObject<Newtonsoft.Json.Linq.JObject>(account);
             var d = o.First;
-            var a = d.First;
+            var a = o.Last.First;
+            //EeroAccount eeroAccount = a.ToObject<EeroAccount>();
             EeroAccount eeroAccount = a.ToObject<EeroAccount>();
             var n = a.SelectToken("networks")?.SelectToken("data");
             if(n!=null) eeroAccount.Networks = n.ToObject<List<Network>>();
